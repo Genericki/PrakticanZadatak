@@ -18,19 +18,16 @@ namespace ListaProizvoda.Models
         [StringLength(50)]
         public string Opis { get; set; }
 
-        public int? KategorijaID { get; set; }
+        [StringLength(200)]
+        public string Kategorija { get; set; }
 
-        public int? DobavljacID { get; set; }
+        [StringLength(200)]
+        public string Dobavljac { get; set; }
 
-        public int? ProizvodjacID { get; set; }
+        [StringLength(200)]
+        public string Proizvodjac { get; set; }
 
         [Column(TypeName = "money")]
         public decimal? Cena { get; set; }
-
-        public virtual Dobavljac Dobavljac { get; set; }
-
-        public virtual Kategorija Kategorija { get; set; }
-
-        public virtual Proizvodjac Proizvodjac { get; set; }
     }
 }

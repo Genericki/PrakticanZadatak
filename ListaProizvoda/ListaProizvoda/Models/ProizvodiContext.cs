@@ -12,26 +12,11 @@ namespace ListaProizvoda.Models
         {
         }
 
-        public virtual DbSet<Dobavljac> Dobavljacs { get; set; }
-        public virtual DbSet<Kategorija> Kategorijas { get; set; }
         public virtual DbSet<Proizvodi> Proizvodis { get; set; }
-        public virtual DbSet<Proizvodjac> Proizvodjacs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Dobavljac>()
-                .Property(e => e.Naziv)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Dobavljac>()
-                .Property(e => e.Kontakt)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Kategorija>()
-                .Property(e => e.Naziv)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Proizvodi>()
                 .Property(e => e.Naziv)
                 .IsUnicode(false);
@@ -41,12 +26,22 @@ namespace ListaProizvoda.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Proizvodi>()
+                .Property(e => e.Kategorija)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Proizvodi>()
+                .Property(e => e.Dobavljac)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Proizvodi>()
+                .Property(e => e.Proizvodjac)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Proizvodi>()
                 .Property(e => e.Cena)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Proizvodjac>()
-                .Property(e => e.Naziv)
-                .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<ListaProizvoda.ViewModel.ProizvodiViewModel> ProizvodiViewModels { get; set; }
     }
 }
