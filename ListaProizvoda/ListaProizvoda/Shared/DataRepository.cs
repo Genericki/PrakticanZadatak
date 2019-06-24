@@ -34,6 +34,12 @@ namespace ListaProizvoda.Shared
         {
             throw new NotImplementedException();
         }
+
+        public virtual void SaveChanges()
+        {
+            this.context.Configuration.AutoDetectChangesEnabled = false;
+            context.SaveChanges();
+        }
     }
 
 }

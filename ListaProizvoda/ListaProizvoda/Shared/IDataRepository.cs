@@ -14,5 +14,7 @@ namespace ListaProizvoda.Shared
 
         void Add(T entity);
         void Edit(T entity);
+        void SaveChanges();
+
     }
 }
