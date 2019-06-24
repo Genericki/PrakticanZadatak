@@ -1,0 +1,51 @@
+﻿@model ListaProizvoda.ViewModel.ProizvodiViewModel
+@{
+
+
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<div id="container">
+    <table id="table1" class="table">
+
+        <tr>
+            <th>Update</th>
+            <th>@Html.DisplayNameFor(model => Model.Id)</th>
+            <th>@Html.DisplayNameFor(model => Model.Naziv)</th>
+            <th>@Html.DisplayNameFor(model => Model.Opis)</th>
+            <th>@Html.DisplayNameFor(model => Model.Kategorija)</th>
+            <th>@Html.DisplayNameFor(model => Model.Proizvodjac)</th>
+            <th>@Html.DisplayNameFor(model => Model.Dobavljac)</th>
+            <th>@Html.DisplayNameFor(model => Model.Cena)</th>
+
+        </tr>
+
+        @foreach (var proizvod in Model.DataProizvod)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = proizvod.ProizvodID })
+            </td>
+            <td>@Html.DisplayFor(modelitem => proizvod.ProizvodID)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Naziv)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Opis)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Kategorija)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Proizvodjac)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Dobavljac)</td>
+            <td>@Html.DisplayFor(modelitem => proizvod.Cena)</td>
+        </tr>
+
+        }
+    </table>
+</div>
+
+
+
