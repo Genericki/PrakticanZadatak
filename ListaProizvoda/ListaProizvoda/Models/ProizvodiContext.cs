@@ -28,19 +28,9 @@ namespace ListaProizvoda.Models
                 .Property(e => e.Kontakt)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Dobavljac>()
-                .HasMany(e => e.Proizvodis)
-                .WithMany(e => e.Dobavljacs)
-                .Map(m => m.ToTable("ProizvodDobavljac").MapLeftKey("DobavljacID").MapRightKey("ProizvodID"));
-
             modelBuilder.Entity<Kategorija>()
                 .Property(e => e.Naziv)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Kategorija>()
-                .HasMany(e => e.Proizvodis)
-                .WithRequired(e => e.Kategorija)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Proizvodi>()
                 .Property(e => e.Naziv)
@@ -53,11 +43,6 @@ namespace ListaProizvoda.Models
             modelBuilder.Entity<Proizvodi>()
                 .Property(e => e.Cena)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Proizvodi>()
-                .HasMany(e => e.Proizvodjacs)
-                .WithMany(e => e.Proizvodis)
-                .Map(m => m.ToTable("ProizvodProizvodjac").MapLeftKey("ProizvodID").MapRightKey("ProizvodjacID"));
 
             modelBuilder.Entity<Proizvodjac>()
                 .Property(e => e.Naziv)
